@@ -32,30 +32,58 @@
         </div>
     </div>
     finnavbar-->
+    <!--fin barra de navegacion con bootstrap-->
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 bg-black  border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <img class="bi me-2" width="40" height="32" src="/imagenes/logo.jpg"></img>
+          <img class="bi mx-2 " width="100" height="50" src="/imagenes/logo.jpg"></img>
           <span class="fs-4 text-white">CARNET MASCOTA</span>
         </a>
   
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">INICIO</a></li>
-          <li class="nav-item"><a href="/paginas/GALERIA.html" class="nav-link">GALERIA</a></li>
+          <li class="nav-item"><a href="#galeria" class="nav-link">GALERIA</a></li>
           <li class="nav-item"><a href="/paginas/PERFIL.HTML" class="nav-link">PERFIL</a></li>
           <li class="nav-item"><a href="/paginas/VACUNAS.HTML" class="nav-link">VACUNAS</a></li>
           <li class="nav-item"><a href="/paginas/formulario.html" class="nav-link">REGISTRO</a></li>
         </ul>
       </header>
-    <div>
-        <!--galeria de imagenes-->
+      <!--fin barra de navegacion con bootstrap-->
+    <div id="galeria">
         <h1>GALERIA DE IMAGENES</h1>
     </div>
+    <!-- galeria con bootstrap-->
+    <div class="container">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/imagenes/bully.jpg" class="d-block w-100 " alt="foto bully">
+              </div>
+              <div class="carousel-item">
+                <img src="/imagenes/pitbull.jpg" class="d-block w-100 " alt="foto pitbull">
+              </div>
+              <div class="carousel-item">
+                <img src="/imagenes/sasha.jpg" class="d-block w-100 " alt="foto sasha">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    <!--fin galeria con bootstrap-->
+        <!--galeria de imagenes
     <div class="img-galery">
         <img src="/imagenes/sasha.jpg" ALT="foto sasha" height="200" width="200">
         <img src="/imagenes/bully.jpg" ALT="foto bully" height="200" width="200">
         <img src="/imagenes/sasha.jpg" ALT="foto sasha" height="200" width="200">
-        <!--fin galeria-->
     </div>
+    fin galeria-->
+
     <div>
         <h1>PERFIL</h1>
     </div>
