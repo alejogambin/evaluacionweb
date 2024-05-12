@@ -44,8 +44,8 @@
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">INICIO</a></li>
             <li class="nav-item"><a href="#galeria" class="nav-link">GALERIA</a></li>
             <li class="nav-item"><a href="/paginas/PERFIL.HTML" class="nav-link">PERFIL</a></li>
-            <li class="nav-item"><a href="/paginas/VACUNAS.HTML" class="nav-link">VACUNAS</a></li>
-            <li class="nav-item"><a href="/paginas/formulario.html" class="nav-link">REGISTRO</a></li>
+            <li class="nav-item"><a href="#VACUNAS" class="nav-link">VACUNAS</a></li>
+            <li class="nav-item"><a href="#REGISTRO" class="nav-link">REGISTRO</a></li>
         </ul>
     </header>
     <!--fin barra de navegacion con bootstrap-->
@@ -121,14 +121,14 @@
         </div>
     </DIV>
     <!--fin mascota-->
+    <div id="VACUNAS">
+        <h1>VACUNAS</h1>
+    </div>
     <!--tabla
     table= tabla 
     tr=table row 
     th=table head
-    td=table data-->
-    <div>
-        <h1>VACUNAS</h1>
-    </div>
+    td=table data
     <div class="centrartabla">
         <table border="1">
             <tr>
@@ -151,13 +151,53 @@
             </tr>
         </table>
     </div>
-    <div>
+    fin tabla-->
+    <!--tabla con bootstrap-->
+    <DIV class="container">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">N°</th>
+                <th scope="col">FECHA</th>
+                <th scope="col">VACUNA</th>
+                <th scope="col">PROXIMA DOSIS</th>
+                <th scope="col">VALOR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="text-center" scope="row ">1</th>
+                <td>16/04/2024</td>
+                <td>antirrabica</td>
+                <td>16/04/2025</td>
+                <td>$20.000</td>
+              </tr>
+              <tr>
+                <th class="text-center" scope="row" >2</th>
+                <td>23/09/2024</td>
+                <td>octuple</td>
+                <td>16/10/2026</td>
+                <td>$15.000</td>
+              </tr>
+              <tr>
+                <th class="text-center" scope="row ">3</th>
+                <td>25/02/2024</td>
+                <td>parvovirosis</td>
+                <td>03/08/2025</td>
+                <td>$35.000</td>
+              </tr>
+            </tbody>
+          </table>
+    </DIV>
+    <!--fin tabla con bootstrap-->
+    <!-- registro con bootstrap-->
+    <div id="REGISTRO">
         <h1>REGISTRO</h1>
     </div>
     <div class="container align-items-center bg-light ">
         <form action="">
             <div>
-                <div class=" pt-2 mb-3 row ">
+                <div class=" pt-2 mb-3 row">
                     <div class="col-2 ">
                         <label for="NOMBREVACUNA" class="form-label">NOMBRE VACUNA</label>
                     </div>
@@ -193,6 +233,7 @@
             </div>
         </form>
     </div>
+    <!--fin registro con bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
