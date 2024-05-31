@@ -46,7 +46,7 @@
             <li class="nav-item"><a href="#galeria" class="nav-link">GALERIA</a></li>
             <li class="nav-item"><a href="#PERFIL" class="nav-link">PERFIL</a></li>
             <li class="nav-item"><a href="#VACUNAS" class="nav-link">VACUNAS</a></li>
-            <li class="nav-item"><a href="#REGISTRO" class="nav-link">REGISTRO</a></li>
+            <li class="nav-item"><a href="/paginas/formulario.html" class="nav-link">REGISTRO</a></li>
         </ul>
     </header>
     <!--fin barra de navegacion con bootstrap-->
@@ -247,45 +247,61 @@
         </table>
     </DIV>
     <!--fin tabla con bootstrap-->
+    <!--inicio tabla de adopcion con api-->
+    <DIV class="container">
+        <h1>ADOPTA TU MASCOTA</h1>
+        <table ID="adopcion" class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">IMAGEN</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">ESTADO</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!--fin tabla con api-->
     <!-- registro con bootstrap-->
     <div id="REGISTRO">
         <h1>REGISTRO</h1>
     </div>
     <div class="container align-items-center bg-light ">
-        <form action="">
+        <form onsubmit="obtenerFormularioJquery()">
             <div>
                 <div class=" pt-2 mb-3 row">
                     <div class="col-2 ">
-                        <label for="NOMBREVACUNA" class="form-label">NOMBRE VACUNA</label>
+                        <label for="nombre" class="form-label">NOMBRE VACUNA</label>
                     </div>
                     <div class="col">
-                        <input type="text" id="NOMBREVACUNA" class="form-control" aria-describedby="NOMBREVACUNAhelp"
+                        <input type="text" id="nombre" class="form-control" aria-describedby="nombrehelp"
                             placeholder="antirrabica/octuple">
                     </div>
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-1">
-                    <label for="inputfecha" class="form-label">FECHA</label>
+                    <label for="fecha" class="form-label">FECHA</label>
                 </div>
                 <div class="col">
-                    <input type="date" class="form-control" id="inputfecha" aria-describedby="fechahelp">
+                    <input type="date" class="form-control" id="fecha" aria-describedby="fechahelp">
                 </div>
                 <div class="mb-3 col-2">
-                    <label for="inputpdosis" class="form-label">PROXIMA DOSIS</label>
+                    <label for="proxDosis" class="form-label">PROXIMA DOSIS</label>
                 </div>
                 <div class="col">
-                    <input type="date" class="form-control" id="inputpdosis">
+                    <input type="date" class="form-control" id="proxDosis">
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-1">
-                    <label for="inputprecio" class="form-label">PRECIO</label>
+                    <label for="precio" class="form-label">PRECIO</label>
                 </div>
                 <div class="col">
-                    <input type="number" class="form-control" id="inputprecio">
+                    <input type="number" class="form-control" id="precio">
                 </div>
             </div>
+            <div id="errores" class="container"></div>
             <div class="d-grid gap-2 col-2 mx-auto mb-4">
                 <button type="submit" class="btn btn-primary">ENVIAR</button>
             </div>
@@ -327,8 +343,37 @@
     </div>
     <!--fin footer con bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/JavaScript/FUNCIONES.JS"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    $(document).ready(function(){
+        //esto se ejecuta una vez carga la pagina
+        var datatabla = ""
+        $.ajax({
+            url:'https://huachitos.cl/api/animales/tipo/perro',
+            dataType:'json',
+            success:function(infomascota){
+            //console.log(infomascota)
+            var mascotas= infomascota.data
+            for(var i=0;i<mascotas.length;i++){
+                var fila = " "
+                //console.log(mascotas[i])
+                //console.log(mascotas[i].imagen)
+                //console.log(mascotas[i].nombre)
+                //console.log(mascotas[i].edad)
+                //console.log(mascotas[i].estado)
+                fila = "<tr><td><img src='"+mascotas[i].imagen+"'width='100' length= '100' </td><td>"+mascotas[i].nombre+"</td><td>"+mascotas[i].edad+"</td><td>"+mascotas[i].estado+"</td></tr>"
+                $("#adopcion").append(fila)
+                datatabla= datatabla + fila
+            }
+        }
+        })
+    })
+    </script>
+
 </body>
 
 </html>
