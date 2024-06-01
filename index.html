@@ -267,15 +267,21 @@
         <h1>REGISTRO</h1>
     </div>
     <div class="container align-items-center bg-light ">
-        <form onsubmit="obtenerFormularioJquery()">
+        <form onsubmit="return obtenerFormularioJquery()">
             <div>
                 <div class=" pt-2 mb-3 row">
-                    <div class="col-2 ">
-                        <label for="nombre" class="form-label">NOMBRE VACUNA</label>
+                    <div class="col-3">
+                        <label for="nombre" class="form-label">NOMBRE MASCOTA</label>
                     </div>
                     <div class="col">
-                        <input type="text" id="nombre" class="form-control" aria-describedby="nombrehelp"
-                            placeholder="antirrabica/octuple">
+                        <input type="text" id="nombre" class="form-control" aria-describedby="NOMBREhelp"
+                            placeholder="pepe-bully-rokcy">
+                    </div>
+                    <div class="col">
+                        <label for="vacuna">VACUNA</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="vacuna" class="form-control" aria-describedby="vacunahelp" placeholder="antirrabica/octuple">
                     </div>
                 </div>
             </div>

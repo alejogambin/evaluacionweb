@@ -38,28 +38,37 @@ function obtenerFormularioJquery(){
         var fecha = $("#fecha").val()
         var proxDosis = $("#proxDosis").val()
         var precio = $("#precio").val()
+        var errorCampoRequerido= "<p class='text-danger errorform'>* CAMPO REQUERIDO</p>"
         var errores = "" 
+        $(".errorform").remove()
         if(nombre.length<=1){
-            errores = errores + "<p>nombre es campo requerido o debe ser mayor a 1 caracter</p>"
+            errores = errores + "<p class='text-danger'>nombre es campo requerido o debe ser mayor a 1 caracter</p>"
+            $("#errornombre").append(errorCampoRequerido)
         }
         if (vacuna.length==0) {
             errores = errores + "<p>vacuna es campo requerido </p>"
+            $("#errorvacuna").append(errorCampoRequerido)
         }
         if (precio.length==0) {
             errores = errores + "<p>precio es campo requerido </p>"
+            $("#errorprecio").append(errorCampoRequerido)
         }
         if (fecha.length==0) {
             errores = errores + "<p>fecha es campo requerido </p>"
+            $("#errorfecha").append(errorCampoRequerido)
+        }
+        if (proxDosis.length==0){
+            errores = errores + "<p>fecha es campo requerido </p>"
+            $("#errorproxDosis").append(errorCampoRequerido)
         }
         if (errores != "") {
             //alert(errores)
             //$("#errores").html(errores)
             swal.fire({
                 title : "ERROR",
-                TEXT : "errores",
+                html : errores,
                 icon: "error"
-            }
-            );
+            });
             return false
         }else{
             swal.fire({
