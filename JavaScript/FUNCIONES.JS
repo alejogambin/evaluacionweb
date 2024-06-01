@@ -1,12 +1,45 @@
+$(document).ready(function(){
+    //esto se ejecuta una vez carga la pagina
+    var datatabla = ""
+    new 
+    $.ajax({
+        url:'https://huachitos.cl/api/animales/tipo/perro',
+        dataType:'json',
+        success:function(infomascota){
+        //console.log(infomascota)
+        var mascotas= infomascota.data
+        for(var i=0;i<mascotas.length;i++){
+            var fila = " "
+            //console.log(mascotas[i])
+            //console.log(mascotas[i].imagen)
+            //console.log(mascotas[i].nombre)
+            //console.log(mascotas[i].edad)
+            //console.log(mascotas[i].estado)
+            fila = "<tr><td><img src='"+mascotas[i].imagen+"'width='100' length= '100' </td><td>"+mascotas[i].nombre+"</td><td>"+mascotas[i].edad+"</td><td>"+mascotas[i].estado+"</td></tr>"
+            $("#adopcion").append(fila)
+        }
+        let mytabla = new DataTable('#adopcion', {
+            layout: {
+                topStart: {
+                    buttons: [
+                        'csv',
+                        'pdf'
+                    ]
+                }
+            }
+        });
+    }
+    })
 
-function miPrimeraChamba(){
+})
+/*function miPrimeraChamba(){
         var contador=1
         for(contador;contador<=100;contador++){
             console.log(contador)
         } 
     }
-
-function obtenerFormulario(){
+*/
+/*function obtenerFormulario(){
         var nombre = document.getElementById("nombre").value
         var vacuna = document.getElementById("vacuna").value
         var fecha = document.getElementById("fecha").value
@@ -31,7 +64,7 @@ function obtenerFormulario(){
             return false
         }
     }
-
+*/
 function obtenerFormularioJquery(){
         var nombre = $("#nombre").val()
         var vacuna = $("#vacuna").val()

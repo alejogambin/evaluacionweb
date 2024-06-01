@@ -8,6 +8,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/styless/estilo.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
     <title>carnet de mascota</title>
     <link rel="icon" type="image/x-icon" href="imagenes/logo.jpg">
 </head>
@@ -119,22 +122,29 @@
                             </div>
                             <div class="modal-body">
                                 <p>El dachshund, también conocido como perro salchicha o teckel, es una raza de perro
-                                originaria de Alemania. Su peculiar fisonomía se debe a una mutación genética conocida
-                                como bassetismo, que dota a los ejemplares de unas extremidades cortas en relación con
-                                el tamaño del cuerpo.</p>
+                                    originaria de Alemania. Su peculiar fisonomía se debe a una mutación genética
+                                    conocida
+                                    como bassetismo, que dota a los ejemplares de unas extremidades cortas en relación
+                                    con
+                                    el tamaño del cuerpo.</p>
 
-                                <p> Según su tamaño y peso puede clasificarse en estándar (9 kg-15 kg), miniatura (5 kg-9
-                                kg) y Kaninchen (3 kg-5 kg) este último no solo se caracteriza por un menor peso y
-                                tamaño, sino que presenta unos rasgos físicos distintos.</p>
+                                <p> Según su tamaño y peso puede clasificarse en estándar (9 kg-15 kg), miniatura (5
+                                    kg-9
+                                    kg) y Kaninchen (3 kg-5 kg) este último no solo se caracteriza por un menor peso y
+                                    tamaño, sino que presenta unos rasgos físicos distintos.</p>
 
-                                <p>Además el perro salchicha se diferencia en función de la tipología del pelo, puede ser
-                                de pelo duro (generalmente de color gris), pelo corto y pelo largo, estos dos últimos
-                                pueden ser de color negro con rojo fuego, marrón chocolate y dorado.</p>
+                                <p>Además el perro salchicha se diferencia en función de la tipología del pelo, puede
+                                    ser
+                                    de pelo duro (generalmente de color gris), pelo corto y pelo largo, estos dos
+                                    últimos
+                                    pueden ser de color negro con rojo fuego, marrón chocolate y dorado.</p>
 
                                 <p> El dachshund de tamaño estándar se desarrolló para oler, perseguir y ahuyentar a los
-                                tejones (de ahí su nombre, que en alemán significa 'perro tejonero') y otros animales
-                                que viven en madrigueras, mientras que el dachshund en miniatura fue criado para cazar
-                                animales pequeños como conejos y ratones.</p>
+                                    tejones (de ahí su nombre, que en alemán significa 'perro tejonero') y otros
+                                    animales
+                                    que viven en madrigueras, mientras que el dachshund en miniatura fue criado para
+                                    cazar
+                                    animales pequeños como conejos y ratones.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
@@ -223,7 +233,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th class="text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  scope="row ">1</th>
+                    <th class="text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop" scope="row ">1</th>
                     <td>16/04/2024</td>
                     <td>antirrabica</td>
                     <td>16/04/2025</td>
@@ -259,6 +269,17 @@
                     <th scope="col">ESTADO</th>
                 </tr>
             </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <tr class="text-center">
+                    <th scope="col">IMAGEN</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">ESTADO</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
     <!--fin tabla con api-->
@@ -281,7 +302,8 @@
                         <label for="vacuna">VACUNA</label>
                     </div>
                     <div class="col">
-                        <input type="text" id="vacuna" class="form-control" aria-describedby="vacunahelp" placeholder="antirrabica/octuple">
+                        <input type="text" id="vacuna" class="form-control" aria-describedby="vacunahelp"
+                            placeholder="antirrabica/octuple">
                     </div>
                 </div>
             </div>
@@ -349,37 +371,20 @@
     </div>
     <!--fin footer con bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/JavaScript/FUNCIONES.JS"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-    $(document).ready(function(){
-        //esto se ejecuta una vez carga la pagina
-        var datatabla = ""
-        $.ajax({
-            url:'https://huachitos.cl/api/animales/tipo/perro',
-            dataType:'json',
-            success:function(infomascota){
-            //console.log(infomascota)
-            var mascotas= infomascota.data
-            for(var i=0;i<mascotas.length;i++){
-                var fila = " "
-                //console.log(mascotas[i])
-                //console.log(mascotas[i].imagen)
-                //console.log(mascotas[i].nombre)
-                //console.log(mascotas[i].edad)
-                //console.log(mascotas[i].estado)
-                fila = "<tr><td><img src='"+mascotas[i].imagen+"'width='100' length= '100' </td><td>"+mascotas[i].nombre+"</td><td>"+mascotas[i].edad+"</td><td>"+mascotas[i].estado+"</td></tr>"
-                $("#adopcion").append(fila)
-                datatabla= datatabla + fila
-            }
-        }
-        })
-    })
-    </script>
-
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <!--<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>-->
 </body>
 
 </html>
